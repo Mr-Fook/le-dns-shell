@@ -39,7 +39,7 @@ RECORD_LINE="默认"
 DOMAIN="xxx.xx"    #主域名，如google.com
 CERT_DOMAINS="xxx.com www.xxx.com"  #待签域名列表，格式"xx.xx www.xx.com xxx.xxx.com",添加时以空格间隔，上限100个。
 
-#证书类型
+#证书类型,默认签发更高效的ECC证书,具体区别Google一下
 CERTTYPE="ECC"    #可选 ECC 和 RSA, 需签发双证书时使用 BOTH
 KEY="prime256v1"   #ECC证书私钥类型，可选 secp384r1 和 prime256v1，签发ECC证书时生效。
 
