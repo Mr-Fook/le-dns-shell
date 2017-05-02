@@ -91,6 +91,6 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 ```
 自定义请参考crontab时间参数生成工具： http://www.cronmaker.com/
 
-**3. 证书更新后重新加载相关服务**
+**3. 证书更新后自动重载相关服务**
 
 在脚本最后加入相关命令，比如`service nginx reload`
