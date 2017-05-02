@@ -67,26 +67,26 @@ fi
 
 if [ "$API" = "cloudxns" ];then
 if [ "$CERTTYPE" = "ECC" ];then
-./letsencrypt.sh -c -k ./cloudxns-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"
+./letsencrypt.sh -c -x -k ./cloudxns-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"
 fi
 if [ "$CERTTYPE" = "RSA" ];then
-./letsencrypt.sh -c -k ./cloudxns-hook.sh -t dns-01 -o "$CERTPATH"
+./letsencrypt.sh -c -x -k ./cloudxns-hook.sh -t dns-01 -o "$CERTPATH"
 fi
 if [ "$CERTTYPE" = "BOTH" ];then
-./letsencrypt.sh -c -k ./cloudxns-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"/ecc
-./letsencrypt.sh -c -k ./cloudxns-hook.sh -t dns-01 -o "$CERTPATH"/non_ecc
+./letsencrypt.sh -c -x -k ./cloudxns-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"/ecc
+./letsencrypt.sh -c -x -k ./cloudxns-hook.sh -t dns-01 -o "$CERTPATH"/non_ecc
 fi
 fi
 
 if [ "$API" = "dnspod" ];then
 if [ "$CERTTYPE" = "ECC" ];then
-./letsencrypt.sh -c -k ./dnspod-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"
+./letsencrypt.sh -c -x -k ./dnspod-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"
 fi
 if [ "$CERTTYPE" = "RSA" ];then
-./letsencrypt.sh -c -k ./dnspod-hook.sh -t dns-01 -o "$CERTPATH"
+./letsencrypt.sh -c -x -k ./dnspod-hook.sh -t dns-01 -o "$CERTPATH"
 fi
 if [ "$CERTTYPE" = "BOTH" ];then
-./letsencrypt.sh -c -k ./dnspod-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"/ecc
-./letsencrypt.sh -c -k ./dnspod-hook.sh -t dns-01 -o "$CERTPATH"/non_ecc
+./letsencrypt.sh -c -x -k ./dnspod-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"/ecc
+./letsencrypt.sh -c -x -k ./dnspod-hook.sh -t dns-01 -o "$CERTPATH"/non_ecc
 fi
 fi
