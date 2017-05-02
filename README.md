@@ -74,7 +74,7 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 ## 其他说明
 **1.关于Let's Encrypt 账户密钥** 
 
-首次运行脚本后会创建 Let's Encrypt 账户密钥，用于 Let's Encrypt 识别你的身份(`签发过的子域名重签时不用更新DNS记录`), 密钥存放于脚本同目录下 accounts 文件夹。其后运行不再重新创建账户秘钥。,如需重新创建秘钥, 需删除 accounts 文件夹, 或给 accounts文件夹 重命名。
+首次运行脚本后会创建 Let's Encrypt 账户密钥，用于 Let's Encrypt 识别你的身份(`签发过的子域名重签时不用更新DNS记录`), 密钥存放于脚本同目录下 accounts 文件夹。其后运行不再重新创建账户秘钥。如需重新创建秘钥, 需删除 accounts 文件夹, 或给 accounts文件夹 重命名。
 
 
 **2. 配置cron计划任务自动更新证书**
