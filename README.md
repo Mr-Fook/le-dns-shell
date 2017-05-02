@@ -64,7 +64,7 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 
 `使用脚本同目录下指定配置文件,以 xxx.conf 为例`
 ```
-./le-dns.sh /xxx.conf
+./le-dns.sh ./xxx.conf
 ```
 运行成功后证书会生成在配置文件指定的目录,默认为脚本同目录下 certs 文件夹。
 
