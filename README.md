@@ -1,24 +1,26 @@
 le-dns-shell
 ----------------
-本脚本使用DNS API修改TXT记录, 通过DNS验证快速签发lets-encrypt证书, DNS API支持CloudXns和dnspod。 
+本脚本使用DNS API修改TXT记录, 通过DNS验证快速签发lets-encrypt证书, DNS API支持CloudXns和Dnspod。 
 
 脚本基于[letsencrypt.sh](https://github.com/lukas2511/dehydrated), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了xdtianyu的原版脚本。
 
 ## 获取
-**获取DNS API**
+**1.获取DNS API**
 
 CloudXns: https://www.cloudxns.net/AccountManage/apimanage.html
 
 Dnspod: https://www.dnspod.cn/console/user/security
 
-**获取脚本与配置文件**
+**2.获取脚本与配置文件**
+
+进入工作目录,例如 `cd /www/wwwroot/ssl`
 ```
 wget https://raw.githubusercontent.com/Mr-Fook/le-dns-shell/master/le-dns.conf
 wget https://raw.githubusercontent.com/Mr-Fook/le-dns-shell/master/le-dns.sh
 chmod +x le-dns.sh
 ```
 
-**按照说明修改配置文件** 
+**3.按照说明修改配置文件** 
 
 ```vi le-dns.conf```
 ```
@@ -52,10 +54,43 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 ```
 ./le-dns.sh
 ```
-
 **运行方式 2** 
 
 `使用指定配置文件,以 /root/xxx.conf 为例`
 ```
 ./le-dns.sh /root/xxx.conf
 ```
+**运行方式 3**
+
+`使用脚本同目录下指定配置文件,以 xxx.conf 为例`
+```
+./le-dns.sh /xxx.conf
+```
+运行成功后证书会生成在配置文件指定的目录,默认为脚本同目录下 certs 文件夹。
+
+使用其中的 `fullchain.pem` 和 `privikey.pem`。
+
+
+## 其他说明
+**1.关于Let's Encrypt 账户密钥** 
+
+首次运行脚本后会创建 Let's Encrypt 账户密钥，用于 Let's Encrypt 识别你的身份(`签发过的子域名重签时不用更新DNS记录`), 密钥存放于脚本同目录下 accounts 文件夹。其后运行不再重新创建账户秘钥。,如需重新创建秘钥, 需删除 accounts 文件夹, 或给 accounts文件夹 重命名。
+
+
+**2. 配置cron计划任务自动更新证书**
+
+以centos为例，`crontab -e`  开始编辑crontab。
+
+设定每月1号01:00自动更新证书。
+```
+00 1 * * 1 /www/wwwroot/ssl/le-dns.sh  >> /www/wwwroot/ssl/log/le-dns.log 2>&1
+```
+设定每周一01:00自动更新证书。
+```
+00 1 1 * * /www/wwwroot/ssl/le-dns.sh  >> /www/wwwroot/ssl/log/le-dns.log 2>&1
+```
+自定义请参考crontab时间参数生成工具： http://www.cronmaker.com/
+
+**3. 证书更新后重新加载相关服务**
+
+在脚本最后加入相关命令，比如`service nginx reload`
