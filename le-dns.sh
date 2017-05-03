@@ -30,7 +30,7 @@ fi
 fi
 
 if [ ! -f "letsencrypt.sh" ];then
-    wget https://raw.githubusercontent.com/lukas2511/dehydrated/master/dehydrated -O letsencrypt.sh -o /dev/null
+    wget https://raw.githubusercontent.com/Mr-Fook/dehydrated/master/dehydrated -O letsencrypt.sh -o /dev/null
     chmod +x letsencrypt.sh
 fi
 
