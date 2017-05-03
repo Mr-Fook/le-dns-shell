@@ -1,8 +1,8 @@
 le-dns-shell
 ----------------
-本脚本通过DNS API修改TXT记录, 使用DNS验证快速签发lets-encrypt证书, DNS API支持CloudXns和Dnspod。 
+本脚本通过调用DNS API修改TXT记录, 使用DNS验证方式快速签发lets-encrypt证书, DNS API支持 CloudXns 和 Dnspod。
 
-脚本基于[letsencrypt.sh](https://github.com/lukas2511/dehydrated), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了xdtianyu的原版脚本。
+脚本基于[letsencrypt.sh](https://github.com/lukas2511/dehydrated), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了[xdtianyu](https://github.com/xdtianyu/scripts/tree/master/le-dns)的原版脚本。
 
 ## 获取
 **1.获取DNS API**
@@ -37,7 +37,7 @@ RECORD_LINE="默认"
 
 #域名列表
 DOMAIN="xxx.xx"    #主域名，如google.com
-CERT_DOMAINS="xxx.com www.xxx.com"  #待签域名列表，格式"xx.xx www.xx.com xxx.xxx.com",添加时以空格间隔，上限100个。
+CERT_DOMAINS="xxx.xx www.xxx.xx"  #待签域名列表，格式"xx.xx www.xx.xx xxx.xx.xx",添加时以空格间隔，上限100个。
 
 #证书类型,默认签发更高效的ECC证书,具体区别Google一下
 CERTTYPE="ECC"    #可选 ECC 和 RSA, 需签发双证书时使用 BOTH
@@ -64,7 +64,7 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 
 `使用脚本同目录下指定配置文件,以 xxx.conf 为例`
 ```
-./le-dns.sh ./xxx.conf
+./le-dns.sh xxx.conf
 ```
 运行成功后证书会生成在配置文件指定的目录,默认为脚本同目录下 certs 文件夹。
 
