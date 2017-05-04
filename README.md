@@ -97,4 +97,4 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 在脚本最后加入相关命令，比如`service nginx reload`
 ## 其他
 
-Telegram: [Mr_Fook](https://t.me/Mr_Fook)
+反馈bug发issue或者Telegram: [Mr_Fook](https://t.me/Mr_Fook)
