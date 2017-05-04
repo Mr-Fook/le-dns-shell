@@ -1,6 +1,6 @@
 le-dns-shell
 ----------------
-本脚本通过调用DNS API修改TXT记录, 使用DNS验证方式快速签发lets-encrypt证书, DNS API支持 CloudXns 和 Dnspod。
+本脚本通过调用DNS API修改TXT记录, 使用DNS验证方式快速签发[Let's Encrypt](https://letsencrypt.org/)证书, DNS API支持 CloudXns 和 Dnspod。
 
 脚本基于[dehydrated](https://github.com/lukas2511/dehydrated)(letsencrypt.sh), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了[xdtianyu](https://github.com/xdtianyu/scripts/tree/master/le-dns)的原版脚本。
 
