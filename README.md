@@ -25,24 +25,24 @@ chmod +x le-dns.sh
 
 ```vi le-dns.conf```
 ```
-#DNS API 可选cloudxns和dnspod
+#DNS API 可选 cloudxns 和 dnspod, 并在对应区域填写API.
 API="cloudxns"
 
-#CloudXns API为"cloudxns"时填入获取到的API
+#CloudXns
 API_KEY="API_KEY"
 SECRET_KEY="SECRET_KEY"
 
-#dnspod   API为"dnspod"时填入获取到的完整TOKEN
+#Dnspod
 TOKEN="TOKEN_ID,API_TOKEN"  #注意，中间有“,”才是完整的TOKEN,例如"198964,-11111111s"
 RECORD_LINE="默认"
 
 #域名列表
 DOMAIN="xxx.xx"    #主域名，如google.com
-CERT_DOMAINS="xxx.xx www.xxx.xx"  #待签域名列表，格式"xx.xx www.xx.xx xxx.xx.xx",添加时以空格间隔，上限100个。
+CERT_DOMAINS="xxx.xx www.xxx.xx"  #待签域名列表，格式"xx.xx www.xx.xx xxx.xx.xx",添加时以空格间隔，上限100个.
 
-#证书类型,默认签发更高效的ECC证书,具体区别Google一下
-CERTTYPE="ECC"     #可选 ECC 和 RSA, 需签发双证书时使用 BOTH
-KEY="prime256v1"   #ECC证书私钥类型，可选 secp384r1 和 prime256v1，签发ECC证书时生效。
+#证书类型
+CERTTYPE="ECC"     #可选 ECC 和 RSA, 需签发双证书时使用"BOTH",ECC证书更高效,但少数旧平台不支持.
+KEY="prime256v1"   #ECC证书私钥类型，可选 secp384r1 和 prime256v1，签发ECC证书时生效.
 
 #证书生成目录
 CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
