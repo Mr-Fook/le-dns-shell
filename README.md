@@ -2,9 +2,10 @@ le-dns-shell
 ----------------
 本脚本通过调用DNS API修改TXT记录, 使用DNS验证方式快速签发[Let's Encrypt](https://letsencrypt.org/)证书, DNS API支持 CloudXns 和 Dnspod。
 
-脚本基于[dehydrated](https://github.com/lukas2511/dehydrated)(letsencrypt.sh), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了[xdtianyu](https://github.com/xdtianyu/scripts/tree/master/le-dns)的原版脚本。
+脚本基于[dehydrated](https://github.com/lukas2511/dehydrated) (letsencrypt.sh), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了[xdtianyu](https://github.com/xdtianyu/scripts/tree/master/le-dns)的原版脚本。
 
 ## 获取
+
 **1.获取DNS API**
 
 CloudXns: https://www.cloudxns.net/AccountManage/apimanage.html
@@ -24,14 +25,14 @@ chmod +x le-dns.sh
 
 ```vi le-dns.conf```
 ```
-#DNS API选择, 可选cloudxns 和 dnspod
+#DNS API 可选cloudxns和dnspod
 API="cloudxns"
 
-#CloudXns  API为"cloudxns"时填入获取到的API
+#CloudXns API为"cloudxns"时填入获取到的API
 API_KEY="API_KEY"
 SECRET_KEY="SECRET_KEY"
 
-#dnspod  API为"dnspod"时填入获取到的完整TOKEN
+#dnspod   API为"dnspod"时填入获取到的完整TOKEN
 TOKEN="TOKEN_ID,API_TOKEN"  #注意，中间有“,”才是完整的TOKEN,例如"198964,-11111111s"
 RECORD_LINE="默认"
 
@@ -40,7 +41,7 @@ DOMAIN="xxx.xx"    #主域名，如google.com
 CERT_DOMAINS="xxx.xx www.xxx.xx"  #待签域名列表，格式"xx.xx www.xx.xx xxx.xx.xx",添加时以空格间隔，上限100个。
 
 #证书类型,默认签发更高效的ECC证书,具体区别Google一下
-CERTTYPE="ECC"    #可选 ECC 和 RSA, 需签发双证书时使用 BOTH
+CERTTYPE="ECC"     #可选 ECC 和 RSA, 需签发双证书时使用 BOTH
 KEY="prime256v1"   #ECC证书私钥类型，可选 secp384r1 和 prime256v1，签发ECC证书时生效。
 
 #证书生成目录
@@ -94,3 +95,6 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 **3. 证书更新后自动重载相关服务**
 
 在脚本最后加入相关命令，比如`service nginx reload`
+## 其他
+
+Telegram: [Mr_Fook](https://t.me/Mr_Fook)
