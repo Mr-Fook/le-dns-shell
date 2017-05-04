@@ -49,19 +49,19 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 ```
 
 ## 使用
-**运行方式 1** 
+**运行方式 1 :** 
 
 `默认使用脚本同目录下配置文件 le-dns.conf`
 ```
 ./le-dns.sh
 ```
-**运行方式 2** 
+**运行方式 2 :** 
 
 `使用指定配置文件,以 /root/xxx.conf 为例`
 ```
 ./le-dns.sh /root/xxx.conf
 ```
-**运行方式 3**
+**运行方式 3 :**
 
 `使用脚本同目录下指定配置文件,以 xxx.conf 为例`
 ```
@@ -94,7 +94,7 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 
 **3. 证书更新后自动重载相关服务**
 
-在脚本最后加入相关命令，比如`service nginx reload`
+在`le-dns.sh`最后加入相关命令，例如`service nginx reload`
 ## 其他
 
 反馈bug发issue或者Telegram: [Mr_Fook](https://t.me/Mr_Fook)
