@@ -1,12 +1,13 @@
 le-dns-shell
 ----------------
-本脚本通过调用DNS API修改TXT记录, 使用DNS验证方式快速签发[Let's Encrypt](https://letsencrypt.org/)证书, DNS API支持 CloudXns 和 Dnspod。
+本脚本通过调用DNS API修改TXT记录, 使用DNS验证方式快速签发[Let's Encrypt](https://letsencrypt.org/)证书, DNS API支持 Cloudflare、CloudXns、Dnspod。
 
 脚本基于[dehydrated](https://github.com/lukas2511/dehydrated) (letsencrypt.sh), DNS hooks来自[xdtianyu/scripts](https://github.com/xdtianyu/scripts/tree/master/le-dns)。 脚本同样借鉴了[xdtianyu](https://github.com/xdtianyu/scripts/tree/master/le-dns)的原版脚本。
 
 ## 获取
 
 **1.获取DNS API**
+Cloudflare: https://www.cloudflare.com/a/profile
 
 CloudXns: https://www.cloudxns.net/AccountManage/apimanage.html
 
@@ -25,7 +26,7 @@ chmod +x le-dns.sh
 
 ```vi le-dns.conf```
 ```
-#DNS API 可选 cloudxns 和 dnspod, 并在对应区域填写API.
+#DNS API 可选 Cloudflare、CloudXns、Dnspod, 并在对应区域填写API.
 API="cloudxns"
 
 #CloudXns
@@ -35,6 +36,10 @@ SECRET_KEY="SECRET_KEY"
 #Dnspod
 TOKEN="TOKEN_ID,API_TOKEN"  #注意，中间有“,”才是完整的TOKEN,例如"198964,-11111111s"
 RECORD_LINE="默认"
+
+#Cloudflare
+CF_EMAIL="YOUR_EMAIL"
+CF_TOKEN="YOUR_API_TOKEN"
 
 #域名列表
 DOMAIN="xxx.xx"    #主域名，如google.com
