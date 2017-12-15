@@ -56,6 +56,17 @@ if [ ! -f "dnspod-hook.sh" ];then
 fi
 fi
 
+if [ "$API" = "cloudflare" ];then
+if [ ! -f "cloudflare.sh" ];then
+    wget https://raw.githubusercontent.com/Mr-Fook/le-dns-shell/master/cloudflare.sh -O cloudflare.sh -o /dev/null
+    chmod +x cloudflare.sh
+fi
+if [ ! -f "cloudflare-hook" ];then
+    wget https://raw.githubusercontent.com/Mr-Fook/le-dns-shell/master/cloudflare-hook.sh -O cloudflare-hook.sh -o /dev/null
+    chmod +x cloudflare-hook.sh
+fi
+fi
+
 echo "$CERT_DOMAINS" > domains.txt
 
 if [ -d "$BASEPATH/accounts" ];then
@@ -90,3 +101,17 @@ if [ "$CERTTYPE" = "BOTH" ];then
 ./letsencrypt.sh -c -x -k ./dnspod-hook.sh -t dns-01 -o "$CERTPATH"/non_ecc
 fi
 fi
+
+if [ "$API" = "cloudflare" ];then
+if [ "$CERTTYPE" = "ECC" ];then
+./letsencrypt.sh -c -x -k ./cloudflare-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"
+fi
+if [ "$CERTTYPE" = "RSA" ];then
+./letsencrypt.sh -c -x -k ./cloudflare-hook.sh -t dns-01 -o "$CERTPATH"
+fi
+if [ "$CERTTYPE" = "BOTH" ];then
+./letsencrypt.sh -c -x -k ./cloudflare-hook.sh -t dns-01 -a "$KEY" -o "$CERTPATH"/ecc
+./letsencrypt.sh -c -x -k ./cloudflare-hook.sh -t dns-01 -o "$CERTPATH"/non_ecc
+fi
+fi
+
