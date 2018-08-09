@@ -95,7 +95,7 @@ CERTPATH="./certs" #此默认配置为脚本同目录下certs文件夹。
 ```
 00 1 1 * * /www/wwwroot/ssl/le-dns.sh  >> /www/wwwroot/ssl/log/le-dns.log 2>&1
 ```
-自定义请参考crontab时间参数生成工具： http://www.cronmaker.com/
+自定义请参考crontab时间参数生成工具： https://crontab.guru
 
 **3. 证书更新后自动重载相关服务**
 
